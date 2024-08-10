@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Reservas</h1>
+<form action="{{ url_for('crear_reserva') }}" method="POST">
+    <select name="usuario_id" required>
+        {% for usuario in usuarios %}
+            <option value="{{ usuario.id }}">{{ usuario.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="espectaculo_id" required>
+        {% for espectaculo in espectaculos %}
+            <option value="{{ espectaculo.id }}">{{ espectaculo.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Crear Reserva</button>
+</form>
+
+<ul>
+    {% for reserva in reservas %}
+        <li>{{ reserva.usuario.nombre }} reservó para {{ reserva.espectaculo.nombre }} el {{ reserva.fecha_reserva }}
+            <a href="{{ url_for('eliminar_reserva', id=reserva.id) }}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Usuarios</h1>
+<form action="{{ url_for('crear_usuario') }}" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Crear Usuario</button>
+</form>
+
+<ul>
+    {% for usuario in usuarios %}
+        <li>{{ usuario.nombre }} - {{ usuario.email }}
+            <a href="{{ url_for('eliminar_usuario', id=usuario.id) }}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

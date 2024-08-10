@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Espectáculos</h1>
+<form action="{{ url_for('crear_espectaculo') }}" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre del Espectáculo" required>
+    <textarea name="descripcion" placeholder="Descripción" required></textarea>
+    <input type="datetime-local" name="fecha" required>
+    <input type="text" name="sala" placeholder="Sala" required>
+    <button type="submit">Crear Espectáculo</button>
+</form>
+
+<ul>
+    {% for espectaculo in espectaculos %}
+        <li>{{ espectaculo.nombre }} - {{ espectaculo.fecha }} - {{ espectaculo.sala }}
+            <p>{{ espectaculo.descripcion }}</p>
+            <a href="{{ url_for('eliminar_espectaculo', id=espectaculo.id) }}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

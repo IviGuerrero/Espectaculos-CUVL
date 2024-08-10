@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EspectaculosPlus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Aplicación de EspectáculosPlus</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('usuarios') }}">Usuarios</a></li>
+                <li><a href="{{ url_for('espectaculos') }}">Espectáculos</a></li>
+                <li><a href="{{ url_for('reservas') }}">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Página de Inicio</h2>
+        <p>Bienvenido a la aplicación web para la reserva de entradas para espectáculos.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Aplicación de Espectáculos</p>
+    </footer>
+</body>
+</html>
